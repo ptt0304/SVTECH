@@ -11,6 +11,13 @@
 
 Procedure:
 1. Using automation tool is Ansible
+
+      Installing Ansible on Ubuntu
+- sudo apt update
+- sudo apt install software-properties-common
+- sudo add-apt-repository --yes --update ppa:ansible/ansible
+- sudo apt install ansible
+ 
 2. Structure
 
 *** hosts ***
@@ -154,3 +161,10 @@ Handlers
   Monitoring and Alerts: Enhance monitoring to capture more granular metrics and set up appropriate alerts for early detection of issues.
   Load Testing: Conduct load testing to identify and address performance bottlenecks before they impact production.
   Disaster Recovery: Implement and test disaster recovery plans to ensure quick recovery in case of future incidents.
+
+
+***
+Reference
+================================================================================
+Install Ansible on Ubuntu:
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
