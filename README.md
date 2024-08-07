@@ -125,10 +125,10 @@ Handlers
   Application Performance: Test the application’s response times and request handling. Use tools like curl or httping to check endpoints.
  
   Example commands:
-  # Check network connectivity
+  ## Check network connectivity
   ping -c 4 my-service
 
-  # Test API endpoint
+  ## Test API endpoint
   curl -I http://my-service/api/health
 
 5. Troubleshoot and Resolve
@@ -137,10 +137,10 @@ Handlers
   Restart Services: If a service is unresponsive, restart it and monitor if the issue is resolved.
  
   Example commands:
-  # Restart service
+  ## Restart service
   systemctl restart my-service
   
-  # Scale service (Kubernetes example)
+  ## Scale service (Kubernetes example)
   kubectl scale deployment my-service --replicas=3
 
 6. Document and Communicate
