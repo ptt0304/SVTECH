@@ -85,15 +85,6 @@ Restart Docker Service
 Tune the Server for High Network Traffic Workload
 -  Adjusts kernel parameters to optimize the server for handling high network traffic.
 
-Ensure auditd is Installed
--  Installs the auditd package for auditing purposes.
-
-Configure auditd to Log All Commands
--  Sets up auditd rules to log command executions for both root and regular users.
-
-Restart auditd Service
--  Restarts the auditd service to apply new logging rules.
-
 Handlers
 -  Restart Docker service if the configuration file is updated.
 
