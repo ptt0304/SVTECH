@@ -53,20 +53,28 @@ Overview
   - Customizable settings for user creation, hostname, Docker configuration, and system tuning.
   
 Variables
+
   user_name: 
   - The username to create (default: Sysadmin).
+
   user_shell:
   - Default shell for the new user (default: /bin/bash).
+
   sudoers_file:
-  - Path to the sudoers file for configuring sudo permissions (default: /etc/sudoers).
+  - Path to the sudoers file for configuring sudo permissions (default: /etc/sudoers)
+    
   hostname:
   - The hostname to set for the server (default: production-grade).
+    
   docker_logging_driver:
   - Docker logging driver to configure (default: "json-file").
+    
   docker_storage_driver:
   - Docker storage driver to configure (default: "overlay2").
 
+
 Tasks
+
 Create the User
 -  Creates a user with the specified user_name and user_shell.
 
