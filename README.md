@@ -6,7 +6,7 @@
 -	Install docker daemon, specify logging driver + storage driver of your choice.
 -	The server should be prepared/tuned for a high network traffic workload.
 -	Logging Every Command Executed by Users and saving in a specific file.
-====================================================================================================================================
+================================================================================
 
 Procedure:
 1. Using automation tool is Ansible
@@ -84,19 +84,75 @@ Handlers
     Restarts the Docker service if the configuration file is updated.
 
 
-
-
-
-
-
-
-
-
-
-
-
+***
 
 
 02 - Describe your idea to monitor the resource utilization of a Tech Stack. Draw a model that is Scalable, Resilient, and Responsive to the most traffic you have ever deployed. 
+================================================================================
+
+
+
+***
+
 
 03 - When you receive an alert that a service is down or slow, what would you do to check that service and resolve the issue? Describe your steps to resolve and prevent the problem (you can describe a real situation that you have encountered).
+================================================================================
+1. Acknowledge the Alert
+  Verify the Alert: Confirm that the alert is legitimate and not a false positive.
+  Check Alert Details: Review the alert information to understand which service is affected and the nature of the issue (e.g., downtime, high latency).
+2. Initial Assessment
+  Access Monitoring Tools: Use monitoring dashboards (e.g., Grafana, Datadog) to get a quick overview of the affected service's performance metrics.
+  Review Recent Changes: Check if there have been any recent changes or deployments that might have impacted the service.
+3. Check Service Status
+  Service Logs: Access and review the logs of the affected service. Look for error messages, stack traces, or unusual activity around the time the issue started.
+  System Metrics: Examine system-level metrics (CPU, memory, disk I/O, network usage) to identify resource bottlenecks.
+  Service Health: Use tools like systemctl, docker ps, or kubectl (for Kubernetes) to check the status of the service and its dependencies.
+
+  Example commands:
+  # Check service status
+  systemctl status my-service
+  
+  # View logs
+  journalctl -u my-service
+  
+  # Check resource usage
+  top
+  df -h
+
+4. Isolate the Problem
+  Network Connectivity: Verify network connectivity between service components. Use ping, traceroute, or similar tools.
+  Dependency Check: Ensure that all service dependencies (e.g., databases, third-party APIs) are functioning correctly.
+  Application Performance: Test the application’s response times and request handling. Use tools like curl or httping to check endpoints.
+ 
+  Example commands:
+  # Check network connectivity
+  ping -c 4 my-service
+
+  # Test API endpoint
+  curl -I http://my-service/api/health
+
+5. Troubleshoot and Resolve
+  Resource Limits: If resource constraints are identified, consider increasing resource limits or optimizing resource usage.
+  Configuration Issues: Review and correct any misconfigurations in service settings.
+  Restart Services: If a service is unresponsive, restart it and monitor if the issue is resolved.
+ 
+  Example commands:
+  # Restart service
+  systemctl restart my-service
+  
+  # Scale service (Kubernetes example)
+  kubectl scale deployment my-service --replicas=3
+
+6. Document and Communicate
+  Incident Report: Document the issue, steps taken to resolve it, and any findings. Include timestamps, affected components, and resolution details.
+  Notify Stakeholders: Communicate with relevant stakeholders about the incident resolution and any potential impacts.
+
+7. Post-Incident Review
+  Root Cause Analysis (RCA): Conduct an RCA to identify the underlying causes of the issue and prevent recurrence.
+  Update Documentation: Ensure that runbooks, documentation, and monitoring configurations are updated based on the findings.
+  Implement Improvements: Apply any necessary changes to improve service resilience and monitoring.
+
+8. Preventive Measures
+  Monitoring and Alerts: Enhance monitoring to capture more granular metrics and set up appropriate alerts for early detection of issues.
+  Load Testing: Conduct load testing to identify and address performance bottlenecks before they impact production.
+  Disaster Recovery: Implement and test disaster recovery plans to ensure quick recovery in case of future incidents.
